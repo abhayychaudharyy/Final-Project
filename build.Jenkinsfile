@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         ECR_URL = '854171615125.dkr.ecr.us-east-1.amazonaws.com/abhayecr'
-        REPO_NAME = 'Final-Project'
+        REPO_NAME = 'abhayecr'
     }
 
     stages {
