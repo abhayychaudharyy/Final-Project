@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        ECR_URL = '854171615125.dkr.ecr.us-east-1.amazonaws.com/abhayecr'
+        ECR_URL = '854171615125.dkr.ecr.us-east-1.amazonaws.com'
         REPO_NAME = 'abhayecr'
     }
 
@@ -12,10 +12,10 @@ pipeline {
 
                 sh '''
                 aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 854171615125.dkr.ecr.us-east-1.amazonaws.com
-               cd yolo5
-                docker build -t abhayecr .
-                docker tag abhayecr:latest 854171615125.dkr.ecr.us-east-1.amazonaws.com/abhayecr:latest
-                docker push 854171615125.dkr.ecr.us-east-1.amazonaws.com/abhayecr:latest
+                #cd yolo5
+                #docker build -t abhayecr .
+                #docker tag abhayecr:latest 854171615125.dkr.ecr.us-east-1.amazonaws.com/abhayecr:latest
+                #docker push 854171615125.dkr.ecr.us-east-1.amazonaws.com/abhayecr:latest
                 '''
             }
         }
