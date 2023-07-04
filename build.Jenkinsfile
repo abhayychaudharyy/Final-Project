@@ -9,9 +9,10 @@ pipeline {
     stages {
         stage('ECR authentication and Docker login') {
             steps {
+
                 sh '''
-                aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin ${ECR_URL}
                 aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 854171615125.dkr.ecr.us-east-1.amazonaws.com
+               cd yolo5
                 docker build -t abhayecr .
                 docker tag abhayecr:latest 854171615125.dkr.ecr.us-east-1.amazonaws.com/abhayecr:latest
                 docker push 854171615125.dkr.ecr.us-east-1.amazonaws.com/abhayecr:latest
